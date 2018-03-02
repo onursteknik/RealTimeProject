@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+@model List<RTP.DAL.InformationReport>
+
+<div class="container">
+    <h2>Real Time Information</h2>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Error Code</th>
+                    <th>Error Msg</th>
+                    <th>Number of Result</th>
+                    <th>Stop ID</th>
+                    <th>TimeStamp</th>
+                    <th>Results</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>@item.ErrorCode</td>
+                        <td>@item.ErrorMessage</td>
+                        <td>@item.NumberOfResults</td>
+                        <td>@item.StopID</td>
+                        <td>@item.TimeStamp</td>
+                        <td>@item.Results</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

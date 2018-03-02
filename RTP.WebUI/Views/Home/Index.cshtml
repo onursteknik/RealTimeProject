@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+@model List<RTP.DAL.InformationReport>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script>
+    (function () {
+        var int = self.setInterval(RefreshData, 20000);
+    })();
+    function RefreshData() {
+        $.get("/Home/InformationContent", function (currencyData) {
+            $("#content").html(currencyData);
+        });
+    }
+    </script>
+
+</head>
+<body>
+        <div id="content">
+            @{Html.RenderPartial("InformationContent", Model);}
+        </div>
+</body>
+</html>
